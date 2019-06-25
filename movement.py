@@ -90,6 +90,12 @@ def line_follow(speed, port, distance, thresh):
 		else:
 			create_drive_direct(-(speed-25), -speed)
 	create_drive_direct(0,0)
+                
+def turn_to_gap():
+	create_spin_CCW(30)
+	while analog(4) > 2000:
+		pass
+	create_drive_direct(0,0)
 	
 	
       
