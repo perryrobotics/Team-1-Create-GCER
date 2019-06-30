@@ -5,7 +5,7 @@ from GCERconstant import *
 
 
 
-#Created Wednesday, February 6th, 2019. Creators: Dhruv Pal, Soham Kinkhbwala, and Aditya Patra.
+#Created Wednesday, February 6th, 2019. Creators: Dhruv Pal and Aditya Patra.
 
 #Function: backward
 #Description: move backward at a certain speed a certain distance
@@ -96,6 +96,3 @@ def turn_to_gap():
 	while analog(4) > 2000:
 		pass
 	create_drive_direct(0,0)
-	
-	
-      

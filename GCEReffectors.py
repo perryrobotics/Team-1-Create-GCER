@@ -27,4 +27,3 @@ def arm_down(step):
 def arm_start(step):
 	move_servo_slow(ARM_PORT, get_servo_position(ARM_PORT), ARM_S, step)
 	move_servo_slow(WRIST_PORT, get_servo_position(WRIST_PORT), WRIST_SS, step)
-          

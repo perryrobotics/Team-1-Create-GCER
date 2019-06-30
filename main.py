@@ -12,12 +12,13 @@ def main():
 	enable_servos()
         
 	arm_start(50)
-	CCW(100,85)
+	CCW(100,90)
 	forward_to_black(200,0,THRESH)
 	forward(200, 300)
 	forward_to_black(200,0,THRESH)
-	forward(100, 150)
+	forward(100, 200)
 	CW(90,110)
+	forward(200, 100)
 	forward_to_black(200,0,THRESH)
 	forward(100,150)
 	CW(100,90)
@@ -43,8 +44,8 @@ def main():
 	#==============================CAMERA CODE========================================= 		
 	camera_close()	
 	if side == RIGHT:
-		forward(100,500)
-		backward(100,500)
+		forward(100,450)
+		backward(100,475)
             
 	else:
 		#CCW(50, 30)
@@ -55,15 +56,27 @@ def main():
 		for x in range(6):
 			backward(50,450/5)
 			CW(50,30/10)
+		backward(30, 25)
                 
-	CCW(50,95)
-	drive_to_bump(100)
-	CW(50, 5)
+	CCW(50, 90)
+	forward(50, 200)
+	backward_to_black(200, 0, THRESH)
+	backward(100, 200)
+	arm_ready(20)
 	forward_to_black(100, 0, THRESH)
-	CCW(50, 10)
-	forward(100, 200)
-	turn_to_gap()
-	backward_to_black(100, 0, THRESH)
+	forward( 50, 450)
+	arm_down(20)
+	backward_to_black(50, 0, THRESH)
+                
+	#CCW(50,95)
+	#drive_to_bump(100)
+	#CW(50, 5)
+	#forward_to_black(100, 0, THRESH)
+	#CCW(50, 10)
+	#forward(100, 350)
+	#turn_to_gap()
+	#backward_to_black(100, 0, THRESH)
+	
 	
 	#forward(50, 350)
 	#arm_down(20)
