@@ -82,6 +82,7 @@ def drive_to_bump(speed):
 		pass
  	create_drive_direct(0,0)
             
+            
 def line_follow(speed, port, distance, thresh):
 	set_create_distance(0)
 	while (get_create_distance() > -distance):

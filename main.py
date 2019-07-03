@@ -12,7 +12,9 @@ def main():
 	enable_servos()
         
 	arm_start(50)
-	CCW(100,90)
+	#wait_for_start(5)
+	msleep(1500)
+	arm_up(20)
 	forward_to_black(200,0,THRESH)
 	forward(200, 300)
 	forward_to_black(200,0,THRESH)
@@ -22,7 +24,11 @@ def main():
 	forward_to_black(200,0,THRESH)
 	forward(100,150)
 	CW(100,90)
-	line_follow(100,0,1400,THRESH)
+	line_follow(100,0,900,THRESH)
+	backward(100, 50)
+	line_follow(100,0,250,THRESH)
+	backward(100, 50)
+	line_follow(100,0, 350, THRESH)
 	#==============================CAMERA CODE========================================= 
 	side = RIGHT
 	print ("Determining burning building!")
@@ -45,7 +51,7 @@ def main():
 	camera_close()	
 	if side == RIGHT:
 		forward(100,450)
-		backward(100,475)
+		backward(100,400)
             
 	else:
 		#CCW(50, 30)
@@ -56,20 +62,52 @@ def main():
 		for x in range(6):
 			backward(50,450/5)
 			CW(50,30/10)
-		backward(30, 25)
+		forward(100, 50)
                 
 	CCW(50, 90)
-	forward(50, 200)
-	backward_to_black(200, 0, THRESH)
+	#forward(50, 200)
+	#backward_to_black(200, 0, THRESH)
 	backward(100, 200)
 	arm_ready(20)
 	forward_to_black(100, 0, THRESH)
-	forward( 50, 450)
+	CCW(50,1)
+	forward( 50, 400)
 	arm_down(20)
 	backward_to_black(50, 0, THRESH)
+	drive_to_bump(100)
+	arm_start(20)
+               
+	forward_to_black(100, 0,THRESH)
+	forward(50, 50)
+	CW(50, 90)
+	if side == RIGHT:
+		line_follow(100,0,400,THRESH)
+		backward(100,400)
+            
+	else:
+		#CCW(50, 30)
+		#forward(100, 450)
+		for x in range(6):
+			CCW(50,30/10)
+			forward(50,450/5)
+		for x in range(6):
+			backward(50,450/5)
+			CW(50,30/10)
+	CCW(100,90)
+	turn_CW_to_black(100,0,THRESH)
+	line_follow(100,0,300,THRESH)
+	CW(100,90)
+	backward(100,200)
+	arm_ready(20)
+	forward(50,400)
+	arm_down(20)
+	backward_to_black(50,0,THRESH)
+                
+	
+	
                 
 	#CCW(50,95)
-	#drive_to_bump(100)
+	#drive_to_bump(10
 	#CW(50, 5)
 	#forward_to_black(100, 0, THRESH)
 	#CCW(50, 10)
