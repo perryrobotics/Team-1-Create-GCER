@@ -1,4 +1,4 @@
-#!/usr/bin/python
+ #!/usr/bin/python
 import os, sys
 from wallaby import *
 from movement import *
@@ -8,11 +8,13 @@ from wait_for_start import*
 
 
 def main():  
+	print("Hello")
   	create_connect()
 	enable_servos()
         
 	arm_start(50)
-	#wait_for_start(5)
+	wait_for_start(5)
+   	shut_down_in(118)
 	msleep(1500)
 	arm_up(20)
 	forward_to_black(200,0,THRESH)
@@ -22,13 +24,13 @@ def main():
 	CW(90,110)
 	forward(200, 100)
 	forward_to_black(200,0,THRESH)
-	forward(100,150)
-	CW(100,90)
-	line_follow(100,0,900,THRESH)
-	backward(100, 50)
-	line_follow(100,0,250,THRESH)
-	backward(100, 50)
-	line_follow(100,0, 350, THRESH)
+	forward(200,150)
+	CW(100,110)
+	line_follow(75, 0, 900, THRESH)
+	backward(100, 100)
+	line_follow(75, 0, 300, THRESH)
+	backward(100, 100)
+	line_follow(75, 0, 500, THRESH)
 	#==============================CAMERA CODE========================================= 
 	side = RIGHT
 	print ("Determining burning building!")
@@ -48,20 +50,23 @@ def main():
 				print("SIDE LEFT!!!!")
 		msleep(50)
 	#==============================CAMERA CODE========================================= 		
-	camera_close()	
+	camera_close()
+	backward(100, 100)
 	if side == RIGHT:
-		forward(100,450)
+		forward(100,250)
+		backward(100,50)
+		forward(100, 400)
 		backward(100,400)
             
 	else:
 		#CCW(50, 30)
 		#forward(100, 450)
 		for x in range(6):
-			CCW(50,30/10)
-			forward(50,450/5)
+			CCW(50,60/10)
+			forward(50,500/5)
 		for x in range(6):
-			backward(50,450/5)
-			CW(50,30/10)
+			backward(50,500/5)
+			CW(50,60/10)
 		forward(100, 50)
                 
 	CCW(50, 90)
@@ -70,15 +75,15 @@ def main():
 	backward(100, 200)
 	arm_ready(20)
 	forward_to_black(100, 0, THRESH)
-	CCW(50,1)
-	forward( 50, 400)
+	CCW(50,2)
+	forward( 50, 250)
 	arm_down(20)
 	backward_to_black(50, 0, THRESH)
 	drive_to_bump(100)
 	arm_start(20)
                
 	forward_to_black(100, 0,THRESH)
-	forward(50, 50)
+	forward(50, 100)
 	CW(50, 90)
 	if side == RIGHT:
 		line_follow(100,0,400,THRESH)
@@ -93,15 +98,45 @@ def main():
 		for x in range(6):
 			backward(50,450/5)
 			CW(50,30/10)
-	CCW(100,90)
-	turn_CW_to_black(100,0,THRESH)
-	line_follow(100,0,300,THRESH)
+	CCW(100,180)
+	forward(100,400)
 	CW(100,90)
-	backward(100,200)
-	arm_ready(20)
-	forward(50,400)
+	backward(100,400)
+	arm_ready(50)
+	CCw(100,2)
+	forward_to_black(100,0,THRESH)
+	forward(100,400)
 	arm_down(20)
-	backward_to_black(50,0,THRESH)
+	backward_to_black(100,0,THRESH)
+	drive_to_bump(100)
+	arm_up(50)
+	forward_to_black(100,0,THRESH)
+	CW(50,90)
+	if side == RIGHT:
+		line_follow(100,0,550,THRESH)
+		backward(100,550)
+            
+	else:
+	
+		for x in range(6):
+			CCW(50,30/10)
+			forward(50,450/5)
+		for x in range(6):
+			backward(50,450/5)
+			CW(50,30/10)
+	
+
+
+	#CCW(100,90)
+	#turn_CW_to_black(100,0,THRESH)
+	#line_follow(100,0,300,THRESH)
+	#CW(100,90)
+	#backward(100,200)
+	#arm_ready(20)
+	#forward(50,400)
+	#arm_down(20)
+	#backward_to_black(50,0,THRESH)
+   	disable_servos()
                 
 	
 	
@@ -160,4 +195,13 @@ def main():
 
 if __name__== "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(),"w",0)
-    main()
+    main()            
+                
+
+                
+                
+	
+
+	
+
+	
