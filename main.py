@@ -1,4 +1,4 @@
- #!/usr/bin/python
+#!/usr/bin/python
 import os, sys
 from wallaby import *
 from movement import *
@@ -27,10 +27,10 @@ def main():
 	forward(200,150)
 	CW(100,110)
 	line_follow(75, 0, 900, THRESH)
-	backward(100, 100)
-	line_follow(75, 0, 300, THRESH)
-	backward(100, 100)
-	line_follow(75, 0, 500, THRESH)
+	backward(100, 75)
+	line_follow(75, 0, 275, THRESH)
+	backward(100, 75)
+	line_follow(75, 0, 525, THRESH)
 	#==============================CAMERA CODE========================================= 
 	side = RIGHT
 	print ("Determining burning building!")
@@ -51,39 +51,38 @@ def main():
 		msleep(50)
 	#==============================CAMERA CODE========================================= 		
 	camera_close()
-	backward(100, 100)
+	backward(100, 150)
 	if side == RIGHT:
-		forward(100,250)
-		backward(100,50)
-		forward(100, 400)
+		forward(100,500)
 		backward(100,400)
             
 	else:
+		forward(100, 150)
 		#CCW(50, 30)
 		#forward(100, 450)
 		for x in range(6):
 			CCW(50,60/10)
-			forward(50,500/5)
+			forward(50,300/5)
 		for x in range(6):
-			backward(50,500/5)
+			backward(50,300/5)
 			CW(50,60/10)
 		forward(100, 50)
+		backward(100,150)
                 
-	CCW(50, 90)
+	CCW(50, 92)
 	#forward(50, 200)
 	#backward_to_black(200, 0, THRESH)
-	backward(100, 200)
+	backward(100, 225)
 	arm_ready(20)
 	forward_to_black(100, 0, THRESH)
-	CCW(50,2)
 	forward( 50, 250)
 	arm_down(20)
 	backward_to_black(50, 0, THRESH)
 	drive_to_bump(100)
 	arm_start(20)
-               
+	forward(100,100)           
 	forward_to_black(100, 0,THRESH)
-	forward(50, 100)
+	forward(50, 50)
 	CW(50, 90)
 	if side == RIGHT:
 		line_follow(100,0,400,THRESH)
